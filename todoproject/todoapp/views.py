@@ -1,16 +1,25 @@
 from django.shortcuts import redirect, render
 from .models import Task
 from .forms import TodoForm
-def todofn(request):
-    if request.method == 'POST':
-        name=request.POST.get('name','')
-        priority=request.POST.get('priority','')
-        date=request.POST.get('date','')
-        task=Task(name=name,priority=priority,date=date)
-        task.save()
-    task1=Task.objects.all()
+from django.views.generic import ListView
+
+class TodoListview(ListView):
+    model=Task
+    template_name='home.html'
+    context_object_name= 'task1'
+
+
+
+# def todofn(request):
+#     if request.method == 'POST':
+#         name=request.POST.get('name','')
+#         priority=request.POST.get('priority','')
+#         date=request.POST.get('date','')
+#         task=Task(name=name,priority=priority,date=date)
+#         task.save()
+#     task1=Task.objects.all()
         
-    return render(request,'home.html',{'task1':task1})
+#     return render(request,'home.html',{'task1':task1})
 # Create your views here.
 def deletefn(request,tid):
     task=Task.objects.get(id=tid)
