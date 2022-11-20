@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block body %}
+<!-- <body>
+    
+    <input type="text" name="name" placeholder="enter your name">
+    <input type="text" name="priority" placeholder="enter your priority">
+    <input type="submit">
+</form> -->
+<div class="container">
+    <div class="row">
+        <form action="" method="POST" >
+            {% csrf_token %}
+        <section class="vh-1000" style="background-color: #eee;">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-9 col-xl-7">
+                  <div class="card rounded-3">
+                    <div class="card-body p-4">
+          
+                      <h4 class="text-center my-3 pb-3">To Do Inmakes</h4>
+          
+                      <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                        <div class="col-12">
+                          <div class="form-outline">
+                            <input name="name" type="text" id="form1" class="form-control" />
+                            <label class="form-label" for="form1">Enter a task here</label>
+                          </div>
+                        </div>
+          
+                        <div class="col-3">
+                        <div class="form-outline">
+                            <input  type="text" name="priority" id="form1" class="form-control" />
+                            <label class="form-label"  for="form1">Enter priority here</label>
+                          </div></div>
+                          
+                        <div class="col-3">
+                          <div class="form-outline">
+                              <input  type="date" name="date" id="form1" class="form-control" />
+                              <label class="form-label"  for="form1">Enter date here</label>
+                            </div></div>
+          
+                          <div class="col-12">
+                            <input type="submit"  class="btn btn-primary" value='Save' >
+                          </div>
+                      </form>
+          
+                      <table class="table mb-4">
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Todo item</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for i in task1 %}
+                          <tr>
+                            <th scope="row">{{i.date}}</th>
+                            <td>{{i.name}}</td>
+                            <td>{{i.priority}}</td>
+                            <td>
+                              <a type="submit" class="btn btn-danger" href="{% url 'deletefn' i.id %}">Delete</a>
+                              
+                              
+                              <a  type="submit"  href="{% url 'update' i.id %}" class="btn btn-success ms-1">Update</a>
+                            </td>
+                          </tr>
+                          
+                          {% endfor %}
+                        </tbody>
+                      </table>
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+        </form>
+    </div>
+</div>
+{% endblock %}
