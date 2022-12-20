@@ -2,7 +2,7 @@
 {% block body %}
 <form action="" method="post">
     {% csrf_token %}
-    {{to.as_p}}
+    {{form.as_p}}
     <button type="submit"> confirm</button>
 </form>
 {% endblock %}

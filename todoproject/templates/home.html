@@ -10,45 +10,52 @@
     <div class="row">
         <form action="" method="POST" >
             {% csrf_token %}
-        <section class="vh-1000" style="background-color: #eee;">
+        <section class="vh-1000" style="background-color: #eee;height: 750px; ">
             <div class="container py-5 h-100">
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-lg-9 col-xl-7">
+              <h4 class="text-center my-3 pb-3" style = "border: 1px solid black; text-align: center; background: rgb(255, 255, 255);">TO DO </h4>
+              <div class="row d-flex justify-content-center align-items-center h-50">
+                <div class="col col-lg-9 col-xl-11">
                   <div class="card rounded-3">
                     <div class="card-body p-4">
           
-                      <h4 class="text-center my-3 pb-3">To Do </h4>
+                      <!-- <h4 class="text-center my-3 pb-3">TO do </h4> -->
+                      <div class="col-5" style="float: left;">
           
                       <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
-                        <div class="col-12">
+                        <div class="col-8" style="float: left;">
                           <div class="form-outline">
                             <input name="name" type="text" id="form1" class="form-control" />
                             <label class="form-label" for="form1">Enter a task here</label>
                           </div>
                         </div>
           
-                        <div class="col-3">
+                        <div class="col-8">
                         <div class="form-outline">
                             <input  type="text" name="priority" id="form1" class="form-control" />
                             <label class="form-label"  for="form1">Enter priority here</label>
                           </div></div>
                           
-                        <div class="col-3">
+                        <div class="col-8">
                           <div class="form-outline">
                               <input  type="date" name="date" id="form1" class="form-control" />
                               <label class="form-label"  for="form1">Enter date here</label>
                             </div></div>
           
-                          <div class="col-12">
+                          <div class="col-3">
                             <input type="submit"  class="btn btn-primary" value='Save' >
                           </div>
-                      </form>
-          
+                      </form></div>
+                      
+                      
+                      
+                      
+                      <div class="vl"></div>
+                        <div class="col-6" style="float: left;">
                       <table class="table mb-4">
                         <thead>
                           <tr>
                             <th scope="col">Date</th>
-                            <th scope="col">Todo item</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Priority</th>
                             <th scope="col">Actions</th>
                           </tr>
@@ -69,7 +76,7 @@
                           
                           {% endfor %}
                         </tbody>
-                      </table>
+                      </table></div>
           
                     </div>
                   </div>
